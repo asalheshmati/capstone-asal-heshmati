@@ -1,0 +1,66 @@
+{
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "fact": {
+          "title": "Fact",
+          "type": "string"
+        },
+        "source_quote": {
+          "title": "Source Quote",
+          "type": "string"
+        },
+        "source_locator": {
+          "title": "Source Locator",
+          "type": "string"
+        },
+        "provenance": {
+          "enum": [
+            "cv_supported",
+            "candidate_attested",
+            "unclear"
+          ],
+          "title": "Provenance",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "fact",
+        "source_quote",
+        "source_locator",
+        "provenance"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/Evidence"
+      },
+      "title": "Evidence",
+      "type": "array"
+    },
+    "clarification_questions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Clarification Questions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "evidence",
+    "clarification_questions"
+  ],
+  "title": "Profile",
+  "type": "object"
+}

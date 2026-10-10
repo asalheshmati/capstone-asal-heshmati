@@ -1,0 +1,88 @@
+{
+  "$defs": {
+    "CV": {
+      "additionalProperties": false,
+      "properties": {
+        "headline": {
+          "title": "Headline",
+          "type": "string"
+        },
+        "claims": {
+          "items": {
+            "$ref": "#/$defs/Claim"
+          },
+          "title": "Claims",
+          "type": "array"
+        },
+        "plain_text": {
+          "title": "Plain Text",
+          "type": "string"
+        },
+        "change_log": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Change Log",
+          "type": "array"
+        },
+        "needs_confirmation": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Needs Confirmation",
+          "type": "array"
+        }
+      },
+      "required": [
+        "headline",
+        "claims",
+        "plain_text",
+        "change_log",
+        "needs_confirmation"
+      ],
+      "title": "CV",
+      "type": "object"
+    },
+    "Claim": {
+      "additionalProperties": false,
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "text",
+        "evidence_ids"
+      ],
+      "title": "Claim",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "master": {
+      "$ref": "#/$defs/CV"
+    },
+    "tailored_a": {
+      "$ref": "#/$defs/CV"
+    },
+    "tailored_b": {
+      "$ref": "#/$defs/CV"
+    }
+  },
+  "required": [
+    "master",
+    "tailored_a",
+    "tailored_b"
+  ],
+  "title": "CVPack",
+  "type": "object"
+}

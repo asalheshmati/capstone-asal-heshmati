@@ -1,0 +1,188 @@
+{
+  "$defs": {
+    "Assessment": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "requirement_text": {
+          "title": "Requirement Text",
+          "type": "string"
+        },
+        "jd_quote": {
+          "title": "Jd Quote",
+          "type": "string"
+        },
+        "category": {
+          "enum": [
+            "essential",
+            "experience",
+            "skills",
+            "preferred",
+            "portfolio"
+          ],
+          "title": "Category",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "direct",
+            "partial",
+            "not_documented",
+            "contradicted"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "requirement_text",
+        "jd_quote",
+        "category",
+        "evidence_ids",
+        "status",
+        "rationale"
+      ],
+      "title": "Assessment",
+      "type": "object"
+    },
+    "Hard": {
+      "additionalProperties": false,
+      "properties": {
+        "requirement": {
+          "title": "Requirement",
+          "type": "string"
+        },
+        "jd_quote": {
+          "title": "Jd Quote",
+          "type": "string"
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Evidence Ids",
+          "type": "array"
+        },
+        "status": {
+          "enum": [
+            "met",
+            "unmet",
+            "unclear"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "rationale": {
+          "title": "Rationale",
+          "type": "string"
+        }
+      },
+      "required": [
+        "requirement",
+        "jd_quote",
+        "evidence_ids",
+        "status",
+        "rationale"
+      ],
+      "title": "Hard",
+      "type": "object"
+    },
+    "Report": {
+      "additionalProperties": false,
+      "properties": {
+        "job_label": {
+          "title": "Job Label",
+          "type": "string"
+        },
+        "target_role": {
+          "title": "Target Role",
+          "type": "string"
+        },
+        "requirement_assessments": {
+          "items": {
+            "$ref": "#/$defs/Assessment"
+          },
+          "title": "Requirement Assessments",
+          "type": "array"
+        },
+        "hard_requirements": {
+          "items": {
+            "$ref": "#/$defs/Hard"
+          },
+          "title": "Hard Requirements",
+          "type": "array"
+        },
+        "top_matches": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Top Matches",
+          "type": "array"
+        },
+        "unclear_evidence": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unclear Evidence",
+          "type": "array"
+        },
+        "tailoring_suggestions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Tailoring Suggestions",
+          "type": "array"
+        },
+        "interview_topics": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Interview Topics",
+          "type": "array"
+        }
+      },
+      "required": [
+        "job_label",
+        "target_role",
+        "requirement_assessments",
+        "hard_requirements",
+        "top_matches",
+        "unclear_evidence",
+        "tailoring_suggestions",
+        "interview_topics"
+      ],
+      "title": "Report",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "reports": {
+      "items": {
+        "$ref": "#/$defs/Report"
+      },
+      "title": "Reports",
+      "type": "array"
+    }
+  },
+  "required": [
+    "reports"
+  ],
+  "title": "Fit",
+  "type": "object"
+}

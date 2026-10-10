@@ -1,0 +1,13 @@
+{
+  "upfront": 4000,
+  "fixed_monthly": 750,
+  "churn_monthly": 0.03,
+  "refund_rate": 0.02,
+  "payment_percent": 0.03,
+  "payment_fixed": 0.3,
+  "api_per_payer_month": 0.4,
+  "support_per_payer_month": 1.0,
+  "member_scenario": 40000,
+  "acquisition": "initial cohort only, no replacement",
+  "currency": "USD"
+}
